@@ -10,6 +10,7 @@ kotlin {
 	android {
         publishLibraryVariants("release", "debug")
     }
+    jvmToolchain(11)
     jvm {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
