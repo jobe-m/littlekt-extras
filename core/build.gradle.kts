@@ -7,7 +7,7 @@ plugins {
 }
 
 kotlin {
-	android {
+	androidTarget {
         publishLibraryVariants("release", "debug")
     }
     jvmToolchain(11)
@@ -72,6 +72,10 @@ android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
     defaultConfig {
         minSdk = (findProperty("android.minSdk") as String).toInt()
         targetSdk = (findProperty("android.targetSdk") as String).toInt()
